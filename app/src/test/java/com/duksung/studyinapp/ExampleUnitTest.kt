@@ -1,4 +1,4 @@
-package com.example.studyinapp
+package com.duksung.studyinapp
 
 import org.junit.Test
 
