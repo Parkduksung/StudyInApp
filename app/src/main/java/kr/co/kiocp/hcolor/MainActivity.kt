@@ -1,4 +1,4 @@
-package com.kiocp.humancolor
+package kr.co.kiocp.hcolor
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.SkuDetails
-import com.kiocp.humancolor.databinding.ActivityMainBinding
+import kr.co.kiocp.hcolor.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -36,9 +36,10 @@ class MainActivity : AppCompatActivity() {
             override fun onBillingModulesIsReady() {
                 bm.querySkuDetail(
                     BillingClient.SkuType.SUBS,
-                    Sku.SUB_BASIC,
-                    Sku.SUB_VIP
+                    Sku.SUB_YEAR
                 ) { skuDetails ->
+                    Log.d("결과", skuDetails.size.toString())
+                    Log.d("결과", skuDetails.toString())
                     mSkuDetails = skuDetails
                 }
 
@@ -75,17 +76,17 @@ class MainActivity : AppCompatActivity() {
     private fun setClickListeners() {
         with(binding) {
             // 광고 제거 구매 버튼 클릭
-            btnVip.setOnClickListener {
-                mSkuDetails.find { it.sku == Sku.SUB_VIP }?.let { skuDetail ->
+            btnYear.setOnClickListener {
+                mSkuDetails.find { it.sku == Sku.SUB_YEAR }?.let { skuDetail ->
                     bm.purchase(skuDetail, currentSubscription)
                 } ?: also {
                     Toast.makeText(applicationContext, "상품을 찾을 수 없습니다.", Toast.LENGTH_LONG).show()
                 }
             }
 
-            btnBasic.setOnClickListener {
-                mSkuDetails.find { it.sku == Sku.SUB_BASIC }?.let { skuDetail ->
-                    bm.purchase(skuDetail, currentSubscription)
+            btnGetYearList.setOnClickListener {
+                mSkuDetails.find { it.sku == Sku.SUB_YEAR }?.let { skuDetail ->
+                    Log.d("결과", skuDetail.toString())
                 } ?: also {
                     Toast.makeText(applicationContext, "상품을 찾을 수 없습니다.", Toast.LENGTH_LONG).show()
                 }

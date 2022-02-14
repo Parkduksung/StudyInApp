@@ -22,16 +22,16 @@
         android:textSize="16sp"/>
 
     <Button
-        android:id="@+id/btn_basic"
+        android:id="@+id/btn_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Basic 1개월 이용권 구매"/>
+        android:text="연간 이용권 구매"/>
 
     <Button
-        android:id="@+id/btn_vip"
+        android:id="@+id/btn_get_year_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Vip 1개월 이용권 구매"/>
+        android:text="연간 이용권 구매 상품 번호"/>
 </LinearLayout>

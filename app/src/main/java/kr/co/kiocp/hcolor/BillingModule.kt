@@ -1,4 +1,4 @@
-package com.kiocp.humancolor
+package kr.co.kiocp.hcolor
 
 import android.app.Activity
 import android.util.Log
